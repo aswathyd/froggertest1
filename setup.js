@@ -1,4 +1,3 @@
-// global variables
 var sprites, deadFrogSprite, canvas, ctx;
 var width = 399, height = 565;
 var timeInterval, laneSize = 35, colSize = 42;
@@ -14,14 +13,10 @@ var directions = {
 	right: "right",
 	down: "down"
 };
-
-// ensures everything loads immediately on page load
 $(document).ready(function() {
 	initHighScores();
 	startGame();
 });
-
-// Initializes the game
 function startGame() {
 	sprites = new Image();
 	sprites.src = "assets/frogger_sprites.png";
@@ -33,29 +28,23 @@ function startGame() {
 	$(deadFrogSprite).load(function() {
 		canvas = $("#game")[0];
 		if (canvas.getContext) {
-			// browser supports canvas
 			init();
 			ctx = canvas.getContext("2d");
 			runGame();
 			eventListener();
 		} else {
-			// browser doesn't support canvas
 			alert("Your browser doesn't support the game. Sorry!");
 		}
 	});
 }
-
-// Starts the initializing process!!
 function init() {
 	initVariables();
 	initObjects();
 	initClickDivs();
 	loadHighScores();
 }
-
-// Initializes variables
 function initVariables() {
-	timeInterval = 40;	// milliseconds	
+	timeInterval = 40;		
 	score = 0;
 	highScore = getLocalStorage("highScore");
 	ifNewHighScore = false;
@@ -69,8 +58,6 @@ function initVariables() {
 	isUpArrow = false;
 	clickOn = false;
 }
-
-// Initializes objects
 function initObjects() {
 	initFrogger();
 	initVehicles();
@@ -80,12 +67,10 @@ function initObjects() {
 	initBadlands();
 	initFrogsHome();
 }
-
 function initFrogger() {
 	frogger = new frog(directions.up);
 	frogger.reset();
 }
-
 function initVehicles() {
 	vehicles = new Array();
 	vehicles.push(vehicleLibrary.pink);
@@ -94,7 +79,6 @@ function initVehicles() {
 	vehicles.push(vehicleLibrary.tank);
 	vehicles.push(vehicleLibrary.truck);
 }
-
 function initLogs() {
 	logs = new Array();	
 	logs.push(logLibrary.longRight);
@@ -103,7 +87,6 @@ function initLogs() {
 	logs.push(logLibrary.longLeft);
 	logs.push(logLibrary.shortRight);
 }
-
 function initInlets() {
 	inlets = new Array();
 	inlets[0] = {
@@ -117,7 +100,6 @@ function initInlets() {
 		inlets[0].xCoords[i] = 12 + i * 85;
 	}
 }
-
 function initBadlands() {
 	badlands = new Array();
 	badlands[0] = {
@@ -131,8 +113,6 @@ function initBadlands() {
 		badlands[0].xCoords[i] = 52 + i * 85;
 	}
 }
-
-// Randomizes the fly's presence and location
 function initFly() {
 	fly = new Array();
 	fly[0] = {
@@ -150,17 +130,13 @@ function initFly() {
 		fly[0].xCoords[0] = -1000;
 	}
 }
-
 function initFrogsHome() {
 	frogsHome = new Array();
 }
-
-// the click div lets the player play again
 function initClickDivs() {
 	initClickDiv("Play");
 	initClickDiv("Submit");
 }
-
 function initClickDiv(name) {
 	if (document.getElementById("click" + name) != null) {
 		return;
@@ -169,8 +145,6 @@ function initClickDiv(name) {
 	div.id = "click" + name;
 	document.getElementById("game_div").appendChild(div);
 }
-
-// Checks the local storage for a value (i.e., the high score)
 function getLocalStorage(name) {
 	for (key in localStorage) {
 		if (key == name) {
@@ -179,7 +153,6 @@ function getLocalStorage(name) {
 	}
 	return 0;
 }
-
 function initHighScores() {
 	var div = document.createElement("div");
 	initHighScoresHeader(div);
@@ -189,7 +162,6 @@ function initHighScores() {
 	$("body").append(div);
 	$(div).append(scoresDiv);
 }
-
 function loadHighScores() {
 	$("#scoresData").empty();
 	var getURL = "http://vast-tundra-5648.herokuapp.com/highscores.json";
@@ -201,7 +173,6 @@ function loadHighScores() {
 		}
 	});
 }
-
 function initHighScoresHeader(div) {
 	var header = document.createElement("div");
 	header.id = "highScoresHeader";
@@ -219,7 +190,6 @@ function initHighScoresHeader(div) {
 	$(header).append(scoreDiv);
 	$(header).append(dateDiv);
 }
-
 function addHighScore(data, rank) {
 	var row = document.createElement("div");
 	row.classList.add("highScore");
