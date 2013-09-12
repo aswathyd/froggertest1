@@ -1,4 +1,3 @@
-// Contains the game loop, which runs different functions depending on the game status
 function runGame() {
 	setInterval(function() {
 		if (time > 0) {
@@ -14,31 +13,23 @@ function runGame() {
 		}
 	}, timeInterval);
 }
-
-// Runs while the frog is dead
 function runDeath() {
 	drawGame();
 	drawDeadFrog();
 	drawDeadFrogMsg();
 	deathPause--;
 }
-
-// Runs when the frog moves
 function runMove() {
 	update();
 	drawGame();
 	drawMovingFrog();
 	movePause--;
 }
-
-// Runs when nothing in the game has changed (i.e., the frog is alive and hasn't moved)
 function runRegular() {
 	update();
 	drawGame();
 	drawFrog(frogger);
 }
-
-// Runs when the game is over
 function runEndGame() {
 	drawGame();
 	deadFrog = {
@@ -46,7 +37,7 @@ function runEndGame() {
 		y: frogger.y
 	}
 	drawDeadFrog();
-	clickOn = true;		// allows user to play again
+	clickOn = true;		
 	time = 0;
 	if (score > highScore) {
 		highScore = score;
@@ -55,8 +46,6 @@ function runEndGame() {
 	}
 	drawGameOver();
 }
-
-// Updates the coordinates of objects that may move and then checks for events such as the frog reaching an inlet
 function update() {
 	updateMovingObjects(vehicles);
 	updateMovingObjects(logs);
@@ -73,8 +62,6 @@ function update() {
 	}
 	time--;
 }
-
-// Adjusts the positions of objects in an array
 function updateMovingObjects(objectArray) {
 	for (i = 0; i < objectArray.length; i++) {
 		for (j = 0; j < objectArray[i].num; j++) {
@@ -94,8 +81,6 @@ function updateMovingObjects(objectArray) {
 		}
 	}
 }
-
-// Adjusts the fly so that it is only present sometimes and moves randomly
 function updateFly() {
 	if (fly[0].isActive) {
 		if (fly[0].intervalsActive == 0) {
@@ -108,9 +93,6 @@ function updateFly() {
 		initFly();
 	}
 }
-
-// Determines whether there is a collision between the frog and any objects in the argument array
-// Moves the frog with the object it's touching if isMoving is true (e.g., for logs)
 function isCollisionWith(objectArray, isMoving) {
 	var xSpan, ySpan;
 	for (i = 0; i < objectArray.length; i++) {
@@ -127,8 +109,6 @@ function isCollisionWith(objectArray, isMoving) {
 	}
 	return false;
 }
-
-// Moves the frog with the object it's on (e.g., a log)
 function moveFrogWith(object) {
 	if (object.direction == directions.left) {
 		frogger.x -= object.speed;
@@ -136,19 +116,12 @@ function moveFrogWith(object) {
 		frogger.x += object.speed;
 	}
 }
-
-// Checks whether the frog is in an unoccupied inlet (and not on the green land!)
 function isHome() {
 	return isCollisionWith(inlets, false) && !isCollisionWith(frogsHome, false) && !isCollisionWith(badlands, false);
 }
-
-// Checks whether the frog is now dead
-// Won't run if isHome() is true and so doesn't need to check if the frog is in an inlet
 function isCollisionDeath() {
 	return isCollisionWith(vehicles, false) || (frogger.y < 262 && (!isCollisionWith(logs, true) || (frogger.x <= 0 || frogger.x + frogger.width >= 399) || isCollisionWith(badlands, false)));
 }
-
-// Updates objects (e.g., resets frog's position) on frog's death
 function updateCollisionDeath() {
 	deadFrog = {
 		x: frogger.x,
@@ -165,8 +138,6 @@ function updateCollisionDeath() {
 		movePause = 0;
 	}
 }
-
-// Updates objects (e.g., frogsHome) when the frog reaches an unoccupied inlet
 function updateHome() {
 	score += 50 + Math.round(time * (timeInterval / 1000));
 	numHome++;
@@ -182,8 +153,6 @@ function updateHome() {
 		increaseLevel();
 	}
 }
-
-// Adds to the frogsHome object when the frog reaches an unoccupied inlet
 function updateFrogsHome() {
 	var x;
 	if (frogger.x <= 95) {
@@ -207,23 +176,17 @@ function updateFrogsHome() {
 	});
 	frogsHome[frogsHome.length - 1].xCoords[0] = frogsHome[frogsHome.length - 1].homeFrog.x;
 }
-
-// Increases the level and difficulty when 5 frogs reach inlets
 function increaseLevel() {
 	level++;
 	initObjects();
 	increaseSpeed(vehicles);
 	increaseSpeed(logs);
 }
-
-// Increases the speed of moving objects
 function increaseSpeed(objectArray) {
 	for (i = 0; i < objectArray.length; i++) {
 		objectArray[i].speed++;
 	}
 }
-
-// Contains the game's event listeners for arrow keys (if game is running and frog is alive) and clicks to play again (if game is over)
 function eventListener() {
 	$(document).keydown(function(event) {
 		var arrow = {
@@ -265,7 +228,6 @@ function eventListener() {
 		}
 	});
 }
-
 function submitScore() {
 	var username = window.prompt("Please enter your username:");
 	while (username == null || username == "") {
