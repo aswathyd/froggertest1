@@ -1,4 +1,3 @@
-// object constructor for most objects (vehicles, logs, inlets, etc.)
 function objectArray(sX, sY, w, h, y, n, s, d) {
 	this.spriteX = sX;
 	this.spriteY = sY;
@@ -21,7 +20,6 @@ function objectArray(sX, sY, w, h, y, n, s, d) {
 		}
 	}
 }
-
 var vehicleLibrary = {
 	pink: new objectArray(10, 268, 28, 20, 455, 4, 2, directions.left),
 	white: new objectArray(46, 264, 28, 24, 420, 3, 1, directions.right),
@@ -29,7 +27,6 @@ var vehicleLibrary = {
 	tank: new objectArray(12, 302, 24, 21, 350, 5, 2, directions.right),
 	truck: new objectArray(104, 302, 46, 18, 315, 3, 2, directions.left)
 }
-
 var logLibrary = {
 	shortRight: new objectArray(10, 230, 85, 21, 110, 3, 3, directions.right),
 	shortLeft: new objectArray(10, 230, 85, 21, 215, 3, 3, directions.left),
@@ -38,8 +35,6 @@ var logLibrary = {
 	longRight: new objectArray(10, 166, 180, 22, 250, 2, 3, directions.right),
 	longLeft: new objectArray(10, 166, 180, 22, 145, 2, 3, directions.left)
 }
-
-// Frogger!!!
 function frog(d, x, y) {
 	this.direction = d;
 	if (this.direction == directions.left) {
