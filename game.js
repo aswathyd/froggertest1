@@ -19,10 +19,7 @@ for (j = 0; j < objectArray[i].num; j++) {if (objectArray[i].direction == direct
 if (objectArray[i].xCoords[j] <= 0 - objectArray[i].width) {objectArray[i].xCoords[j] = 399 + objectArray[i].width;
 } else {objectArray[i].xCoords[j] -= objectArray[i].speed;}
 } else {if (objectArray[i].xCoords[j] >= 399 + objectArray[i].width) {objectArray[i].xCoords[j] = 0 - objectArray[i].width;
-} else {objectArray[i].xCoords[j] += objectArray[i].speed;}}
-}
-	}
-}
+} else {objectArray[i].xCoords[j] += objectArray[i].speed;}}}}}
 
 // Adjusts the fly so that it is only present sometimes and moves randomly
 function updateFly() {
