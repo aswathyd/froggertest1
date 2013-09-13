@@ -9,24 +9,10 @@ deadFrog = {x: frogger.x,y: frogger.y}
 drawDeadFrog();clickOn = true;		time = 0;
 if (score > highScore) {highScore = score;localStorage["highScore"] = highScore;isNewHighScore = true;}
 drawGameOver();}
-
-// Updates the coordinates of objects that may move and then checks for events such as the frog reaching an inlet
-function update() {
-	updateMovingObjects(vehicles);
-	updateMovingObjects(logs);
-	updateFly();
-	if (isHome()) {
-		updateHome();
-	} else {
-		if (isCollisionDeath()) {
-			updateCollisionDeath();
-		} else if (isUpArrow) {
-			score += 10;
-			isUpArrow = false;
-		}
-	}
-	time--;
-}
+function update() {updateMovingObjects(vehicles);updateMovingObjects(logs);updateFly();
+if (isHome()) {updateHome();
+} else {if (isCollisionDeath()) {updateCollisionDeath();
+} else if (isUpArrow) {score += 10;isUpArrow = false;}}time--;}
 
 // Adjusts the positions of objects in an array
 function updateMovingObjects(objectArray) {
