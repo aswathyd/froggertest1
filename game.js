@@ -39,23 +39,11 @@ deadFrog = {x: frogger.x,y: frogger.y};
 numLives--;gameOver = numLives <= 0;isUpArrow = false;
 if (gameOver) {runEndGame();
 } else {frogger.reset();deathPause = 50;movePause = 0;}}
-
-// Updates objects (e.g., frogsHome) when the frog reaches an unoccupied inlet
 function updateHome() {
-	score += 50 + Math.round(time * (timeInterval / 1000));
-	numHome++;
-	if (fly[0].isActive && isCollisionWith(fly, false)) {
-		score += 200;
-		fly[0].isActive = false;
-		fly[0].intervalsActive = 0;
-	}
-	updateFrogsHome();
-	frogger.reset();
-	if (numHome % 5 == 0) {
-		score += 1000;
-		increaseLevel();
-	}
-}
+score += 50 + Math.round(time * (timeInterval / 1000));numHome++;
+if (fly[0].isActive && isCollisionWith(fly, false)) {score += 200;fly[0].isActive = false;fly[0].intervalsActive = 0;}
+updateFrogsHome();frogger.reset();
+if (numHome % 5 == 0) {score += 1000;increaseLevel();}}
 
 // Adds to the frogsHome object when the frog reaches an unoccupied inlet
 function updateFrogsHome() {
