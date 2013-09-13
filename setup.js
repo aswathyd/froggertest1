@@ -38,25 +38,11 @@ function loadHighScores() {
 $("#scoresData").empty();
 var getURL = "http://vast-tundra-5648.herokuapp.com/highscores.json";
 $.get(getURL, {game_title: "Frogger"}, "json").done(function(data) {
-for (var i in data) {addHighScore(data[i], Number(i) + 1);}	});}
-
-function initHighScoresHeader(div) {
-	var header = document.createElement("div");
-	header.id = "highScoresHeader";
-	var rank = document.createElement("div");
-	rank.innerHTML = "<h3>Rank</h3>";
-	var username = document.createElement("div");
-	username.innerHTML = "<h3>Username</h3>";
-	var scoreDiv = document.createElement("div");
-	scoreDiv.innerHTML = "<h3>Score</h3>";
-	var dateDiv = document.createElement("div");
-	dateDiv.innerHTML = "<h3>Date</h3>";
-	$(div).append(header);
-	$(header).append(rank);
-	$(header).append(username);
-	$(header).append(scoreDiv);
-	$(header).append(dateDiv);
-}
+for (var i in data) {addHighScore(data[i], Number(i) + 1);}});}
+function initHighScoresHeader(div) {var header = document.createElement("div");header.id = "highScoresHeader";var rank = document.createElement("div");
+rank.innerHTML = "<h3>Rank</h3>";var username = document.createElement("div");username.innerHTML = "<h3>Username</h3>";
+var scoreDiv = document.createElement("div");scoreDiv.innerHTML = "<h3>Score</h3>";var dateDiv = document.createElement("div");dateDiv.innerHTML = "<h3>Date</h3>";
+$(div).append(header);$(header).append(rank);$(header).append(username);$(header).append(scoreDiv);$(header).append(dateDiv);}
 
 function addHighScore(data, rank) {
 	var row = document.createElement("div");
