@@ -33,12 +33,7 @@ if (xSpan && ySpan) {if (isMoving) {moveFrogWith(objectArray[i]);}return true;}}
 function moveFrogWith(object) {if (object.direction == directions.left) {frogger.x -= object.speed;
 } else {frogger.x += object.speed;}}
 function isHome() {return isCollisionWith(inlets, false) && !isCollisionWith(frogsHome, false) && !isCollisionWith(badlands, false);}
-
-// Checks whether the frog is now dead
-// Won't run if isHome() is true and so doesn't need to check if the frog is in an inlet
-function isCollisionDeath() {
-	return isCollisionWith(vehicles, false) || (frogger.y < 262 && (!isCollisionWith(logs, true) || (frogger.x <= 0 || frogger.x + frogger.width >= 399) || isCollisionWith(badlands, false)));
-}
+function isCollisionDeath() {return isCollisionWith(vehicles, false) || (frogger.y < 262 && (!isCollisionWith(logs, true) || (frogger.x <= 0 || frogger.x + frogger.width >= 399) || isCollisionWith(badlands, false)));}
 
 // Updates objects (e.g., resets frog's position) on frog's death
 function updateCollisionDeath() {
