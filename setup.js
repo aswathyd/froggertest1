@@ -1,15 +1,7 @@
 var sprites, deadFrogSprite, canvas, ctx;var width = 399, height = 565;var timeInterval, laneSize = 35, colSize = 42;var score, highScore, isNewHighScore;
 var seconds, time, level;var numLives, gameOver, numHome;var frogger, deadFrog, vehicles, logs, fly;var inlets, badlands, frogsHome;var movePause, deathPause, isUpArrow, clickOn;
-var directions = {
-	left: "left",
-	up: "up",
-	right: "right",
-	down: "down"
-};
-$(document).ready(function() {
-	initHighScores();
-	startGame();
-});
+var directions = {left: "left",up: "up",right: "right",down: "down"};
+$(document).ready(function() {initHighScores();startGame();});
 function startGame() {
 	sprites = new Image();
 	sprites.src = "assets/frogger_sprites.png";
