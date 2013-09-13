@@ -62,17 +62,7 @@ if (deathPause == 0) {if (event.which == arrow.left || event.keyCode == arrow.le
 } else {return;}event.preventDefault();});
 $("#clickSubmit").click(function() {if (clickOn) {submitScore();}});
 $("#clickPlay").click(function() {if (clickOn) {init();}});}
-
-function submitScore() {
-	var username = window.prompt("Please enter your username:");
-	while (username == null || username == "") {
-		username = window.prompt("Oops! Please enter your username again:");
-	}
-	var postURL = "http://vast-tundra-5648.herokuapp.com/submit.json";
-	$.post(postURL, {
-		game_title: "Frogger",
-		username: username,
-		score: score
-	});
-	init();
-}
+function submitScore() {var username = window.prompt("Please enter your username:");
+while (username == null || username == "") {username = window.prompt("Oops! Please enter your username again:");}
+var postURL = "http://vast-tundra-5648.herokuapp.com/submit.json";$.post(postURL, {game_title: "Frogger",username: username,score: score});
+init();}
