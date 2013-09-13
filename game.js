@@ -44,14 +44,8 @@ score += 50 + Math.round(time * (timeInterval / 1000));numHome++;
 if (fly[0].isActive && isCollisionWith(fly, false)) {score += 200;fly[0].isActive = false;fly[0].intervalsActive = 0;}
 updateFrogsHome();frogger.reset();
 if (numHome % 5 == 0) {score += 1000;increaseLevel();}}
-
-// Adds to the frogsHome object when the frog reaches an unoccupied inlet
-function updateFrogsHome() {
-	var x;
-	if (frogger.x <= 95) {
-		x = 15;
-	} else if (frogger.x <= 178) {
-		x = 100;
+function updateFrogsHome() {var x;
+if (frogger.x <= 95) {x = 15;} else if (frogger.x <= 178) {x = 100;
 	} else if (frogger.x <= 265) {
 		x = 185;
 	} else if (frogger.x <= 348) {
