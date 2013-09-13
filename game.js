@@ -16,8 +16,22 @@ function runGame() {
 function runDeath() {drawGame();drawDeadFrog();drawDeadFrogMsg();deathPause--;}
 function runMove() {update();drawGame();drawMovingFrog();movePause--;}
 function runRegular() {update();drawGame();drawFrog(frogger);}
-function runEndGame() {drawGame();deadFrog = {x: frogger.x,y: frogger.y}drawDeadFrog();clickOn = true;	time = 0;
-if (score > highScore) {highScore = score;localStorage["highScore"] = highScore;isNewHighScore = true;}drawGameOver();}
+function runEndGame() {
+	drawGame();
+	deadFrog = {
+		x: frogger.x,
+		y: frogger.y
+	}
+	drawDeadFrog();
+	clickOn = true;		// allows user to play again
+	time = 0;
+	if (score > highScore) {
+		highScore = score;
+		localStorage["highScore"] = highScore;
+		isNewHighScore = true;
+	}
+	drawGameOver();
+}
 function update() {
 	updateMovingObjects(vehicles);
 	updateMovingObjects(logs);
