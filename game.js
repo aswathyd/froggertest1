@@ -51,20 +51,10 @@ frogsHome.push({homeFrog: new frog(directions.up, x, 114),num: 1,xCoords: new Ar
 frogsHome[frogsHome.length - 1].xCoords[0] = frogsHome[frogsHome.length - 1].homeFrog.x;}
 function increaseLevel() {level++;initObjects();increaseSpeed(vehicles);increaseSpeed(logs);}
 function increaseSpeed(objectArray) {for (i = 0; i < objectArray.length; i++) {objectArray[i].speed++;}}
-
-// Contains the game's event listeners for arrow keys (if game is running and frog is alive) and clicks to play again (if game is over)
 function eventListener() {
-	$(document).keydown(function(event) {
-		var arrow = {
-			left: 37,
-			up: 38,
-			right: 39,
-			down: 40
-		}
-		if (deathPause == 0) {
-			if (event.which == arrow.left || event.keyCode == arrow.left) {
-				frogger = new frog(directions.left, frogger.x, frogger.y);
-				movePause = 2;
+$(document).keydown(function(event) {
+var arrow = {left: 37,up: 38,right: 39,down: 40}
+if (deathPause == 0) {if (event.which == arrow.left || event.keyCode == arrow.left) {frogger = new frog(directions.left, frogger.x, frogger.y);movePause = 2;
 			} else if (event.which == arrow.up || event.keyCode == arrow.up) {
 				frogger = new frog(directions.up, frogger.x, frogger.y);
 				movePause = 2;
