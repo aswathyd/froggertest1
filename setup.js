@@ -13,71 +13,20 @@ function initObjects() {initFrogger();initVehicles();initLogs();initFly();initIn
 function initFrogger() {frogger = new frog(directions.up);frogger.reset();}
 function initVehicles() {vehicles = new Array();vehicles.push(vehicleLibrary.pink);vehicles.push(vehicleLibrary.white);vehicles.push(vehicleLibrary.yellow);
 vehicles.push(vehicleLibrary.tank);vehicles.push(vehicleLibrary.truck);}
-function initLogs() {logs = new Array();	
-	logs.push(logLibrary.longRight);
-	logs.push(logLibrary.shortLeft);
-	logs.push(logLibrary.mediumRight);
-	logs.push(logLibrary.longLeft);
-	logs.push(logLibrary.shortRight);
-}
-function initInlets() {
-	inlets = new Array();
-	inlets[0] = {
-		y: 70,
-		width: 30,
-		height: 30,
-		num: 5,
-		xCoords: new Array()
-	}
-	for (i = 0; i < inlets[0].num; i++) {
-		inlets[0].xCoords[i] = 12 + i * 85;
-	}
-}
-function initBadlands() {
-	badlands = new Array();
-	badlands[0] = {
-		y: 0,
-		width: 35,
-		height: 95,
-		num: 4,
-		xCoords: new Array()
-	}
-	for (i = 0; i < badlands[0].num; i++) {
-		badlands[0].xCoords[i] = 52 + i * 85;
-	}
-}
-function initFly() {
-	fly = new Array();
-	fly[0] = {
-		y: 80,
-		width: 16,
-		height: 16,
-		num: 1,
-		isActive: Math.floor(Math.random() * 100) == 1,
-		intervalsActive: Math.floor(Math.random() * 10) * 3 + 100,
-		xCoords: new Array()
-	}
-	if (fly[0].isActive) {
-		fly[0].xCoords[0] = 18 + (Math.floor(Math.random() * 5)) * 85;
-	} else {
-		fly[0].xCoords[0] = -1000;
-	}
-}
-function initFrogsHome() {
-	frogsHome = new Array();
-}
-function initClickDivs() {
-	initClickDiv("Play");
-	initClickDiv("Submit");
-}
-function initClickDiv(name) {
-	if (document.getElementById("click" + name) != null) {
-		return;
-	}
-	var div = document.createElement("div");
-	div.id = "click" + name;
-	document.getElementById("game_div").appendChild(div);
-}
+function initLogs() {logs = new Array();logs.push(logLibrary.longRight);logs.push(logLibrary.shortLeft);logs.push(logLibrary.mediumRight);
+logs.push(logLibrary.longLeft);logs.push(logLibrary.shortRight);}
+function initInlets() {inlets = new Array();inlets[0] = {y: 70,width: 30,height: 30,num: 5,xCoords: new Array()}
+for (i = 0; i < inlets[0].num; i++) {inlets[0].xCoords[i] = 12 + i * 85;}}
+function initBadlands() {badlands = new Array();badlands[0] = {y: 0,width: 35,height: 95,num: 4,xCoords: new Array()}
+for (i = 0; i < badlands[0].num; i++) {badlands[0].xCoords[i] = 52 + i * 85;}}
+function initFly() {fly = new Array();fly[0] = {y: 80,width: 16,height: 16,num: 1,isActive: Math.floor(Math.random() * 100) == 1,
+intervalsActive: Math.floor(Math.random() * 10) * 3 + 100,xCoords: new Array()}if (fly[0].isActive) {
+fly[0].xCoords[0] = 18 + (Math.floor(Math.random() * 5)) * 85;} else {fly[0].xCoords[0] = -1000;}}
+function initFrogsHome() {frogsHome = new Array();}
+function initClickDivs() {initClickDiv("Play");initClickDiv("Submit");}
+function initClickDiv(name) {if (document.getElementById("click" + name) != null) {return;}
+var div = document.createElement("div");div.id = "click" + name;
+document.getElementById("game_div").appendChild(div);}
 function getLocalStorage(name) {
 	for (key in localStorage) {
 		if (key == name) {
