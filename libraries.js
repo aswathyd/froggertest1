@@ -13,32 +13,10 @@ longRight: new objectArray(10, 166, 180, 22, 250, 2, 3, directions.right),longLe
 function frog(d, x, y) {this.direction = d;
 if (this.direction == directions.left) {this.x = x - colSize / 2;this.y = y;this.jumpX = this.x + colSize / 4;this.jumpY = this.y;
 this.spriteX = 81;this.spriteY = 337;this.spriteJumpX = 112;this.spriteJumpY = 338;this.width = 18;this.height = 23;this.jumpWidth = 25;this.jumpHeight = 22;
-	} else if (this.direction == directions.up) {
-		this.x = x;
-		this.y = y - laneSize;
-		this.jumpX = this.x;
-		this.jumpY = this.y + laneSize / 2;
-		this.spriteX = 12;
-		this.spriteY = 367;
-		this.spriteJumpX = 45;
-		this.spriteJumpY = 365;
-		this.width = 23;
-		this.height = 17;
-		this.jumpWidth = 22;
-		this.jumpHeight = 25;
-	} else if (this.direction == directions.right) {
-		this.x = x + colSize / 2;
-		this.y = y;
-		this.jumpX = this.x - colSize / 4;
-		this.jumpY = this.y;
-		this.spriteX = 14;
-		this.spriteY = 333;
-		this.spriteJumpX = 45;
-		this.spriteJumpY = 335;
-		this.width = 17;
-		this.height = 23;
-		this.jumpWidth = 25;
-		this.jumpHeight = 22;
+} else if (this.direction == directions.up) {this.x = x;this.y = y - laneSize;this.jumpX = this.x;this.jumpY = this.y + laneSize / 2;this.spriteX = 12;
+this.spriteY = 367;this.spriteJumpX = 45;this.spriteJumpY = 365;this.width = 23;this.height = 17;this.jumpWidth = 22;this.jumpHeight = 25;
+} else if (this.direction == directions.right) {this.x = x + colSize / 2;this.y = y;this.jumpX = this.x - colSize / 4;this.jumpY = this.y;
+this.spriteX = 14;this.spriteY = 333;this.spriteJumpX = 45;this.spriteJumpY = 335;this.width = 17;this.height = 23;this.jumpWidth = 25;this.jumpHeight = 22;
 	} else if (this.direction == directions.down) {
 		this.x = x;
 		this.y = y + laneSize;
