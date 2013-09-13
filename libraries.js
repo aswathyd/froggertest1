@@ -7,29 +7,12 @@ this.xCoords[i] = this.startX + i * (width / this.num + this.width);}}}
 var vehicleLibrary = {pink: new objectArray(10, 268, 28, 20, 455, 4, 2, directions.left),white: new objectArray(46, 264, 28, 24, 420, 3, 1, directions.right),
 yellow: new objectArray(81, 265, 24, 26, 385, 4, 1, directions.left),tank: new objectArray(12, 302, 24, 21, 350, 5, 2, directions.right),
 truck: new objectArray(104, 302, 46, 18, 315, 3, 2, directions.left)}
-var logLibrary = {
-	shortRight: new objectArray(10, 230, 85, 21, 110, 3, 3, directions.right),
-	shortLeft: new objectArray(10, 230, 85, 21, 215, 3, 3, directions.left),
-	mediumRight: new objectArray(10, 197, 117, 22, 180, 2, 2, directions.right),
-	mediumLeft: new objectArray(10, 197, 117, 22, 180, 2, 2, directions.left),
-	longRight: new objectArray(10, 166, 180, 22, 250, 2, 3, directions.right),
-	longLeft: new objectArray(10, 166, 180, 22, 145, 2, 3, directions.left)
-}
-function frog(d, x, y) {
-	this.direction = d;
-	if (this.direction == directions.left) {
-		this.x = x - colSize / 2;
-		this.y = y;
-		this.jumpX = this.x + colSize / 4;
-		this.jumpY = this.y;
-		this.spriteX = 81;
-		this.spriteY = 337;
-		this.spriteJumpX = 112;
-		this.spriteJumpY = 338;
-		this.width = 18;
-		this.height = 23;
-		this.jumpWidth = 25;
-		this.jumpHeight = 22;
+var logLibrary = {shortRight: new objectArray(10, 230, 85, 21, 110, 3, 3, directions.right),shortLeft: new objectArray(10, 230, 85, 21, 215, 3, 3, directions.left),
+mediumRight: new objectArray(10, 197, 117, 22, 180, 2, 2, directions.right),mediumLeft: new objectArray(10, 197, 117, 22, 180, 2, 2, directions.left),
+longRight: new objectArray(10, 166, 180, 22, 250, 2, 3, directions.right),longLeft: new objectArray(10, 166, 180, 22, 145, 2, 3, directions.left)}
+function frog(d, x, y) {this.direction = d;
+if (this.direction == directions.left) {this.x = x - colSize / 2;this.y = y;this.jumpX = this.x + colSize / 4;this.jumpY = this.y;
+this.spriteX = 81;this.spriteY = 337;this.spriteJumpX = 112;this.spriteJumpY = 338;this.width = 18;this.height = 23;this.jumpWidth = 25;this.jumpHeight = 22;
 	} else if (this.direction == directions.up) {
 		this.x = x;
 		this.y = y - laneSize;
