@@ -1,12 +1,47 @@
 function runGame() {
-setInterval(function() {if (time > 0) {if (deathPause > 0) {runDeath();} else if (movePause > 0) {runMove();
-} else {runRegular();}} else {runEndGame();}}, timeInterval);}
-function runDeath() {drawGame();drawDeadFrog();drawDeadFrogMsg();deathPause--;}
-function runMove() {update();drawGame();drawMovingFrog();movePause--;}
-function runRegular() {update();drawGame();drawFrog(frogger);}
-function runEndGame() {drawGame();
-deadFrog = {x: frogger.x,y: frogger.y}drawDeadFrog();clickOn = true;time = 0;
-if (score > highScore) {highScore = score;localStorage["highScore"] = highScore;isNewHighScore = true;}drawGameOver();}
+setInterval(function() {if (time > 0) {if (deathPause > 0) {runDeath();} else if (movePause > 0) {
+runMove();} else {runRegular();}} else {runEndGame();}}, timeInterval);}
+
+// Runs while the frog is dead
+function runDeath() {
+	drawGame();
+	drawDeadFrog();
+	drawDeadFrogMsg();
+	deathPause--;
+}
+
+// Runs when the frog moves
+function runMove() {
+	update();
+	drawGame();
+	drawMovingFrog();
+	movePause--;
+}
+
+// Runs when nothing in the game has changed (i.e., the frog is alive and hasn't moved)
+function runRegular() {
+	update();
+	drawGame();
+	drawFrog(frogger);
+}
+
+// Runs when the game is over
+function runEndGame() {
+	drawGame();
+	deadFrog = {
+		x: frogger.x,
+		y: frogger.y
+	}
+	drawDeadFrog();
+	clickOn = true;		// allows user to play again
+	time = 0;
+	if (score > highScore) {
+		highScore = score;
+		localStorage["highScore"] = highScore;
+		isNewHighScore = true;
+	}
+	drawGameOver();
+}
 
 // Updates the coordinates of objects that may move and then checks for events such as the frog reaching an inlet
 function update() {
