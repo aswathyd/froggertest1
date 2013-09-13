@@ -8,7 +8,7 @@ function runEndGame() {drawGame();
 deadFrog = {x: frogger.x,y: frogger.y}drawDeadFrog();clickOn = true;time = 0;
 if (score > highScore) {highScore = score;localStorage["highScore"] = highScore;isNewHighScore = true;}drawGameOver();}
 function update() {
-	updateMovingObjects(vehicles);
+updateMovingObjects(vehicles);
 	updateMovingObjects(logs);
 	updateFly();
 	if (isHome()) {
