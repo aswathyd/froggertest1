@@ -2,26 +2,10 @@ var sprites, deadFrogSprite, canvas, ctx;var width = 399, height = 565;var timeI
 var seconds, time, level;var numLives, gameOver, numHome;var frogger, deadFrog, vehicles, logs, fly;var inlets, badlands, frogsHome;var movePause, deathPause, isUpArrow, clickOn;
 var directions = {left: "left",up: "up",right: "right",down: "down"};
 $(document).ready(function() {initHighScores();startGame();});
-function startGame() {
-	sprites = new Image();
-	sprites.src = "assets/frogger_sprites.png";
-	deadFrogSprite = new Image();
-	deadFrogSprite.src = "assets/dead_frog.png";
-	$(sprites).load(function() {
-		return;
-	});
-	$(deadFrogSprite).load(function() {
-		canvas = $("#game")[0];
-		if (canvas.getContext) {
-			init();
-			ctx = canvas.getContext("2d");
-			runGame();
-			eventListener();
-		} else {
-			alert("Your browser doesn't support the game. Sorry!");
-		}
-	});
-}
+function startGame() {sprites = new Image();sprites.src = "assets/frogger_sprites.png";deadFrogSprite = new Image();deadFrogSprite.src = "assets/dead_frog.png";
+$(sprites).load(function() {return;});
+$(deadFrogSprite).load(function() {canvas = $("#game")[0];if (canvas.getContext) {init();ctx = canvas.getContext("2d");runGame();eventListener();
+} else {alert("Your browser doesn't support the game. Sorry!");}});}
 function init() {
 	initVariables();
 	initObjects();
