@@ -60,17 +60,8 @@ if (deathPause == 0) {if (event.which == arrow.left || event.keyCode == arrow.le
 } else if ((event.which == arrow.down || event.keyCode == arrow.down) && frogger.y < 485) {frogger = new frog(directions.down, frogger.x, frogger.y);movePause = 2;
 } else {return;}
 } else {return;}event.preventDefault();});
-	$("#clickSubmit").click(function() {
-		if (clickOn) {
-			submitScore();
-		}
-	});
-	$("#clickPlay").click(function() {
-		if (clickOn) {
-			init();
-		}
-	});
-}
+$("#clickSubmit").click(function() {if (clickOn) {submitScore();}});
+$("#clickPlay").click(function() {if (clickOn) {init();}});}
 
 function submitScore() {
 	var username = window.prompt("Please enter your username:");
