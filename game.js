@@ -34,24 +34,11 @@ function moveFrogWith(object) {if (object.direction == directions.left) {frogger
 } else {frogger.x += object.speed;}}
 function isHome() {return isCollisionWith(inlets, false) && !isCollisionWith(frogsHome, false) && !isCollisionWith(badlands, false);}
 function isCollisionDeath() {return isCollisionWith(vehicles, false) || (frogger.y < 262 && (!isCollisionWith(logs, true) || (frogger.x <= 0 || frogger.x + frogger.width >= 399) || isCollisionWith(badlands, false)));}
-
-// Updates objects (e.g., resets frog's position) on frog's death
 function updateCollisionDeath() {
-	deadFrog = {
-		x: frogger.x,
-		y: frogger.y
-	};
-	numLives--;
-	gameOver = numLives <= 0;
-	isUpArrow = false;
-	if (gameOver) {
-		runEndGame();
-	} else {
-		frogger.reset();
-		deathPause = 50;
-		movePause = 0;
-	}
-}
+deadFrog = {x: frogger.x,y: frogger.y};
+numLives--;gameOver = numLives <= 0;isUpArrow = false;
+if (gameOver) {runEndGame();
+} else {frogger.reset();deathPause = 50;movePause = 0;}}
 
 // Updates objects (e.g., frogsHome) when the frog reaches an unoccupied inlet
 function updateHome() {
