@@ -19,14 +19,43 @@ function initInlets() {inlets = new Array();inlets[0] = {y: 70,width: 30,height:
 for (i = 0; i < inlets[0].num; i++) {inlets[0].xCoords[i] = 12 + i * 85;}}
 function initBadlands() {badlands = new Array();badlands[0] = {y: 0,width: 35,height: 95,num: 4,xCoords: new Array()}
 for (i = 0; i < badlands[0].num; i++) {badlands[0].xCoords[i] = 52 + i * 85;}}
-function initFly() {fly = new Array();fly[0] = {y: 80,width: 16,height: 16,num: 1,isActive: Math.floor(Math.random() * 100) == 1,
-intervalsActive: Math.floor(Math.random() * 10) * 3 + 100,xCoords: new Array()}if (fly[0].isActive) {
-fly[0].xCoords[0] = 18 + (Math.floor(Math.random() * 5)) * 85;} else {fly[0].xCoords[0] = -1000;}}
-function initFrogsHome() {frogsHome = new Array();}
-function initClickDivs() {initClickDiv("Play");initClickDiv("Submit");}
-function initClickDiv(name) {if (document.getElementById("click" + name) != null) {return;}
-var div = document.createElement("div");div.id = "click" + name;
-document.getElementById("game_div").appendChild(div);}
+function initFly() {
+	fly = new Array();
+	fly[0] = {
+		y: 80,
+		width: 16,
+		height: 16,
+		num: 1,
+		isActive: Math.floor(Math.random() * 100) == 1,
+		intervalsActive: Math.floor(Math.random() * 10) * 3 + 100,
+		xCoords: new Array()
+	}
+	if (fly[0].isActive) {
+		fly[0].xCoords[0] = 18 + (Math.floor(Math.random() * 5)) * 85;
+	} else {
+		fly[0].xCoords[0] = -1000;
+	}
+}
+function initFrogsHome() {
+	frogsHome = new Array();
+}
+
+// the click div lets the player play again
+function initClickDivs() {
+	initClickDiv("Play");
+	initClickDiv("Submit");
+}
+
+function initClickDiv(name) {
+	if (document.getElementById("click" + name) != null) {
+		return;
+	}
+	var div = document.createElement("div");
+	div.id = "click" + name;
+	document.getElementById("game_div").appendChild(div);
+}
+
+// Checks the local storage for a value (i.e., the high score)
 function getLocalStorage(name) {
 	for (key in localStorage) {
 		if (key == name) {
@@ -35,6 +64,7 @@ function getLocalStorage(name) {
 	}
 	return 0;
 }
+
 function initHighScores() {
 	var div = document.createElement("div");
 	initHighScoresHeader(div);
@@ -44,6 +74,7 @@ function initHighScores() {
 	$("body").append(div);
 	$(div).append(scoresDiv);
 }
+
 function loadHighScores() {
 	$("#scoresData").empty();
 	var getURL = "http://vast-tundra-5648.herokuapp.com/highscores.json";
@@ -55,6 +86,7 @@ function loadHighScores() {
 		}
 	});
 }
+
 function initHighScoresHeader(div) {
 	var header = document.createElement("div");
 	header.id = "highScoresHeader";
@@ -72,6 +104,7 @@ function initHighScoresHeader(div) {
 	$(header).append(scoreDiv);
 	$(header).append(dateDiv);
 }
+
 function addHighScore(data, rank) {
 	var row = document.createElement("div");
 	row.classList.add("highScore");
