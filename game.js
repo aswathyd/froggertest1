@@ -17,36 +17,27 @@ function update() {updateMovingObjects(vehicles);updateMovingObjects(logs);updat
 if (isHome()) {updateHome();} else {if (isCollisionDeath()) {updateCollisionDeath();
 } else if (isUpArrow) {score += 10;isUpArrow = false;}}time--;}
 function updateMovingObjects(objectArray) {
-	for (i = 0; i < objectArray.length; i++) {
-		for (j = 0; j < objectArray[i].num; j++) {
-			if (objectArray[i].direction == directions.left) {
-				if (objectArray[i].xCoords[j] <= 0 - objectArray[i].width) {
-					objectArray[i].xCoords[j] = 399 + objectArray[i].width;
-				} else {
-					objectArray[i].xCoords[j] -= objectArray[i].speed;
-				}
-			} else {
-				if (objectArray[i].xCoords[j] >= 399 + objectArray[i].width) {
-					objectArray[i].xCoords[j] = 0 - objectArray[i].width;
-				} else {
-					objectArray[i].xCoords[j] += objectArray[i].speed;
-				}
-			}
-		}
-	}
+for (i = 0; i < objectArray.length; i++) {
+for (j = 0; j < objectArray[i].num; j++) {
+if (objectArray[i].direction == directions.left) {
+if (objectArray[i].xCoords[j] <= 0 - objectArray[i].width) {
+objectArray[i].xCoords[j] = 399 + objectArray[i].width;
+} else {
+objectArray[i].xCoords[j] -= objectArray[i].speed;
 }
+} else {
+if (objectArray[i].xCoords[j] >= 399 + objectArray[i].width) {
+objectArray[i].xCoords[j] = 0 - objectArray[i].width;
+} else {
+objectArray[i].xCoords[j] += objectArray[i].speed;}}}}}
 function updateFly() {
-	if (fly[0].isActive) {
-		if (fly[0].intervalsActive == 0) {
-			fly[0].isActive = false;
-		} else {
-			fly[0].intervalsActive--;
-			drawFly();
-		}
-	} else {
-		initFly();
-	}
-}
+if (fly[0].isActive) {
+if (fly[0].intervalsActive == 0) {
+fly[0].isActive = false;
+} else {
+fly[0].intervalsActive--;
+drawFly();}
+} else {initFly();}}
 function isCollisionWith(objectArray, isMoving) {
 	var xSpan, ySpan;
 	for (i = 0; i < objectArray.length; i++) {
