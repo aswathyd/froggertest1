@@ -26,31 +26,11 @@ xCoords: new Array()}
 if (fly[0].isActive) {fly[0].xCoords[0] = 18 + (Math.floor(Math.random() * 5)) * 85;
 } else {fly[0].xCoords[0] = -1000;}}
 function initFrogsHome() {frogsHome = new Array();}
-
-// the click div lets the player play again
-function initClickDivs() {
-	initClickDiv("Play");
-	initClickDiv("Submit");
-}
-
-function initClickDiv(name) {
-	if (document.getElementById("click" + name) != null) {
-		return;
-	}
-	var div = document.createElement("div");
-	div.id = "click" + name;
-	document.getElementById("game_div").appendChild(div);
-}
-
-// Checks the local storage for a value (i.e., the high score)
+function initClickDivs() {initClickDiv("Play");initClickDiv("Submit");}
+function initClickDiv(name) {if (document.getElementById("click" + name) != null) {return;}
+var div = document.createElement("div");div.id = "click" + name;document.getElementById("game_div").appendChild(div);}
 function getLocalStorage(name) {
-	for (key in localStorage) {
-		if (key == name) {
-			return localStorage[key];
-		}
-	}
-	return 0;
-}
+for (key in localStorage) {if (key == name) {return localStorage[key];}}return 0;}
 
 function initHighScores() {
 	var div = document.createElement("div");
