@@ -51,8 +51,10 @@ moveFrogWith(objectArray[i]);
 function moveFrogWith(object) {
 if (object.direction == directions.left) {
 frogger.x -= object.speed;} else {frogger.x += object.speed;}}
-function isHome() {return isCollisionWith(inlets, false) && !isCollisionWith(frogsHome, false) && !isCollisionWith(badlands, false);}
-function isCollisionDeath() {return isCollisionWith(vehicles, false) || (frogger.y < 262 && (!isCollisionWith(logs, true) || (frogger.x <= 0 || frogger.x + frogger.width >= 399) || isCollisionWith(badlands, false)));}
+function isHome() {
+return isCollisionWith(inlets, false) && !isCollisionWith(frogsHome, false) && !isCollisionWith(badlands, false);}
+function isCollisionDeath() {
+return isCollisionWith(vehicles, false) || (frogger.y < 262 && (!isCollisionWith(logs, true) || (frogger.x <= 0 || frogger.x + frogger.width >= 399) || isCollisionWith(badlands, false)));}
 function updateCollisionDeath() {
 	deadFrog = {
 		x: frogger.x,
