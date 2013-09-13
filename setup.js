@@ -31,28 +31,14 @@ function initClickDiv(name) {if (document.getElementById("click" + name) != null
 var div = document.createElement("div");div.id = "click" + name;document.getElementById("game_div").appendChild(div);}
 function getLocalStorage(name) {
 for (key in localStorage) {if (key == name) {return localStorage[key];}}return 0;}
-
-function initHighScores() {
-	var div = document.createElement("div");
-	initHighScoresHeader(div);
-	div.id = "highScores";
-	var scoresDiv = document.createElement("div");
-	scoresDiv.id = "scoresData";
-	$("body").append(div);
-	$(div).append(scoresDiv);
-}
-
+function initHighScores() {var div = document.createElement("div");initHighScoresHeader(div);div.id = "highScores";var scoresDiv = document.createElement("div");
+scoresDiv.id = "scoresData";
+$("body").append(div);$(div).append(scoresDiv);}
 function loadHighScores() {
-	$("#scoresData").empty();
-	var getURL = "http://vast-tundra-5648.herokuapp.com/highscores.json";
-	$.get(getURL, {
-		game_title: "Frogger"
-	}, "json").done(function(data) {
-		for (var i in data) {
-			addHighScore(data[i], Number(i) + 1);
-		}
-	});
-}
+$("#scoresData").empty();
+var getURL = "http://vast-tundra-5648.herokuapp.com/highscores.json";
+$.get(getURL, {game_title: "Frogger"}, "json").done(function(data) {
+for (var i in data) {addHighScore(data[i], Number(i) + 1);}	});}
 
 function initHighScoresHeader(div) {
 	var header = document.createElement("div");
