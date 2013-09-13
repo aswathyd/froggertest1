@@ -47,16 +47,8 @@ if (numHome % 5 == 0) {score += 1000;increaseLevel();}}
 function updateFrogsHome() {var x;
 if (frogger.x <= 95) {x = 15;} else if (frogger.x <= 178) {x = 100;} else if (frogger.x <= 265) {x = 185;
 } else if (frogger.x <= 348) {x = 270;} else {x = 355;}
-	frogsHome.push({
-		homeFrog: new frog(directions.up, x, 114),
-		num: 1,
-		xCoords: new Array(),
-		y: 72,
-		width: 23,
-		height: 17
-	});
-	frogsHome[frogsHome.length - 1].xCoords[0] = frogsHome[frogsHome.length - 1].homeFrog.x;
-}
+frogsHome.push({homeFrog: new frog(directions.up, x, 114),num: 1,xCoords: new Array(),y: 72,width: 23,height: 17});
+frogsHome[frogsHome.length - 1].xCoords[0] = frogsHome[frogsHome.length - 1].homeFrog.x;}
 
 // Increases the level and difficulty when 5 frogs reach inlets
 function increaseLevel() {
