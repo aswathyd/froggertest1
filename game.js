@@ -13,25 +13,14 @@ function update() {updateMovingObjects(vehicles);updateMovingObjects(logs);updat
 if (isHome()) {updateHome();
 } else {if (isCollisionDeath()) {updateCollisionDeath();
 } else if (isUpArrow) {score += 10;isUpArrow = false;}}time--;}
-
-// Adjusts the positions of objects in an array
 function updateMovingObjects(objectArray) {
-	for (i = 0; i < objectArray.length; i++) {
-		for (j = 0; j < objectArray[i].num; j++) {
-			if (objectArray[i].direction == directions.left) {
-				if (objectArray[i].xCoords[j] <= 0 - objectArray[i].width) {
-					objectArray[i].xCoords[j] = 399 + objectArray[i].width;
-				} else {
-					objectArray[i].xCoords[j] -= objectArray[i].speed;
-				}
-			} else {
-				if (objectArray[i].xCoords[j] >= 399 + objectArray[i].width) {
-					objectArray[i].xCoords[j] = 0 - objectArray[i].width;
-				} else {
-					objectArray[i].xCoords[j] += objectArray[i].speed;
-				}
-			}
-		}
+for (i = 0; i < objectArray.length; i++) {
+for (j = 0; j < objectArray[i].num; j++) {if (objectArray[i].direction == directions.left) {
+if (objectArray[i].xCoords[j] <= 0 - objectArray[i].width) {objectArray[i].xCoords[j] = 399 + objectArray[i].width;
+} else {objectArray[i].xCoords[j] -= objectArray[i].speed;}
+} else {if (objectArray[i].xCoords[j] >= 399 + objectArray[i].width) {objectArray[i].xCoords[j] = 0 - objectArray[i].width;
+} else {objectArray[i].xCoords[j] += objectArray[i].speed;}}
+}
 	}
 }
 
