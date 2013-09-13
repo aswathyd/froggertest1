@@ -17,23 +17,6 @@ this.spriteX = 81;this.spriteY = 337;this.spriteJumpX = 112;this.spriteJumpY = 3
 this.spriteY = 367;this.spriteJumpX = 45;this.spriteJumpY = 365;this.width = 23;this.height = 17;this.jumpWidth = 22;this.jumpHeight = 25;
 } else if (this.direction == directions.right) {this.x = x + colSize / 2;this.y = y;this.jumpX = this.x - colSize / 4;this.jumpY = this.y;
 this.spriteX = 14;this.spriteY = 333;this.spriteJumpX = 45;this.spriteJumpY = 335;this.width = 17;this.height = 23;this.jumpWidth = 25;this.jumpHeight = 22;
-	} else if (this.direction == directions.down) {
-		this.x = x;
-		this.y = y + laneSize;
-		this.jumpX = this.x;
-		this.jumpY = this.y - laneSize / 2;
-		this.spriteX = 81;
-		this.spriteY = 370;
-		this.spriteJumpX = 114;
-		this.spriteJumpY = 366;
-		this.width = 23;
-		this.height = 17;
-		this.jumpWidth = 22;
-		this.jumpHeight = 25;
-	}
-	this.reset = function() {
-		this.x = 187;
-		this.y = 490;
-		this.direction = directions.up;
-	}
-}
+} else if (this.direction == directions.down) {this.x = x;this.y = y + laneSize;this.jumpX = this.x;this.jumpY = this.y - laneSize / 2;this.spriteX = 81;
+this.spriteY = 370;this.spriteJumpX = 114;this.spriteJumpY = 366;this.width = 23;this.height = 17;this.jumpWidth = 22;this.jumpHeight = 25;}
+this.reset = function() {this.x = 187;this.y = 490;this.direction = directions.up;}}
