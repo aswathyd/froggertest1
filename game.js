@@ -30,15 +30,8 @@ ySpan = (frogger.y >= objectArray[i].y && frogger.y <= objectArray[i].y + object
 for (j = 0; j < objectArray[i].num; j++) {
 xSpan = (frogger.x >= objectArray[i].xCoords[j] && frogger.x <= objectArray[i].xCoords[j] + objectArray[i].width) || (objectArray[i].xCoords[j] >= frogger.x && objectArray[i].xCoords[j] <= frogger.x + frogger.width);
 if (xSpan && ySpan) {if (isMoving) {moveFrogWith(objectArray[i]);}return true;}}}return false;}
-
-// Moves the frog with the object it's on (e.g., a log)
-function moveFrogWith(object) {
-	if (object.direction == directions.left) {
-		frogger.x -= object.speed;
-	} else {
-		frogger.x += object.speed;
-	}
-}
+function moveFrogWith(object) {if (object.direction == directions.left) {frogger.x -= object.speed;
+} else {frogger.x += object.speed;}}
 
 // Checks whether the frog is in an unoccupied inlet (and not on the green land!)
 function isHome() {
