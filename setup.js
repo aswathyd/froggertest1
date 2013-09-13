@@ -6,27 +6,9 @@ function startGame() {sprites = new Image();sprites.src = "assets/frogger_sprite
 $(sprites).load(function() {return;});
 $(deadFrogSprite).load(function() {canvas = $("#game")[0];if (canvas.getContext) {init();ctx = canvas.getContext("2d");runGame();eventListener();
 } else {alert("Your browser doesn't support the game. Sorry!");}});}
-function init() {
-	initVariables();
-	initObjects();
-	initClickDivs();
-	loadHighScores();
-}
-function initVariables() {
-	timeInterval = 40;		
-	score = 0;
-	highScore = getLocalStorage("highScore");
-	ifNewHighScore = false;
-	seconds = 30;
-	time = seconds * (1000 / timeInterval);
-	level = 1;
-	numLives = 5;
-	numHome = 0;
-	movePause = 0;
-	deathPause = 0;
-	isUpArrow = false;
-	clickOn = false;
-}
+function init() {initVariables();initObjects();initClickDivs();loadHighScores();}
+function initVariables() {timeInterval = 40;	score = 0;highScore = getLocalStorage("highScore");ifNewHighScore = false;seconds = 30;
+time = seconds * (1000 / timeInterval);level = 1;numLives = 5;numHome = 0;movePause = 0;deathPause = 0;isUpArrow = false;clickOn = false;}
 function initObjects() {
 	initFrogger();
 	initVehicles();
