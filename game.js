@@ -45,14 +45,8 @@ if (fly[0].isActive && isCollisionWith(fly, false)) {score += 200;fly[0].isActiv
 updateFrogsHome();frogger.reset();
 if (numHome % 5 == 0) {score += 1000;increaseLevel();}}
 function updateFrogsHome() {var x;
-if (frogger.x <= 95) {x = 15;} else if (frogger.x <= 178) {x = 100;
-	} else if (frogger.x <= 265) {
-		x = 185;
-	} else if (frogger.x <= 348) {
-		x = 270;
-	} else {
-		x = 355;
-	}
+if (frogger.x <= 95) {x = 15;} else if (frogger.x <= 178) {x = 100;} else if (frogger.x <= 265) {x = 185;
+} else if (frogger.x <= 348) {x = 270;} else {x = 355;}
 	frogsHome.push({
 		homeFrog: new frog(directions.up, x, 114),
 		num: 1,
