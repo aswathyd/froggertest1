@@ -9,29 +9,11 @@ $(deadFrogSprite).load(function() {canvas = $("#game")[0];if (canvas.getContext)
 function init() {initVariables();initObjects();initClickDivs();loadHighScores();}
 function initVariables() {timeInterval = 40;	score = 0;highScore = getLocalStorage("highScore");ifNewHighScore = false;seconds = 30;
 time = seconds * (1000 / timeInterval);level = 1;numLives = 5;numHome = 0;movePause = 0;deathPause = 0;isUpArrow = false;clickOn = false;}
-function initObjects() {
-	initFrogger();
-	initVehicles();
-	initLogs();
-	initFly();
-	initInlets();
-	initBadlands();
-	initFrogsHome();
-}
-function initFrogger() {
-	frogger = new frog(directions.up);
-	frogger.reset();
-}
-function initVehicles() {
-	vehicles = new Array();
-	vehicles.push(vehicleLibrary.pink);
-	vehicles.push(vehicleLibrary.white);
-	vehicles.push(vehicleLibrary.yellow);
-	vehicles.push(vehicleLibrary.tank);
-	vehicles.push(vehicleLibrary.truck);
-}
-function initLogs() {
-	logs = new Array();	
+function initObjects() {initFrogger();initVehicles();initLogs();initFly();initInlets();initBadlands();initFrogsHome();}
+function initFrogger() {frogger = new frog(directions.up);frogger.reset();}
+function initVehicles() {vehicles = new Array();vehicles.push(vehicleLibrary.pink);vehicles.push(vehicleLibrary.white);vehicles.push(vehicleLibrary.yellow);
+vehicles.push(vehicleLibrary.tank);vehicles.push(vehicleLibrary.truck);}
+function initLogs() {logs = new Array();	
 	logs.push(logLibrary.longRight);
 	logs.push(logLibrary.shortLeft);
 	logs.push(logLibrary.mediumRight);
