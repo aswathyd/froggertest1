@@ -1,25 +1,9 @@
-function objectArray(sX, sY, w, h, y, n, s, d) {
-	this.spriteX = sX;
-	this.spriteY = sY;
-	this.width = w;
-	this.height = h;
-	this.y = y;
-	this.num = n;
-	this.speed = s;
-	this.direction = d;
-	this.xCoords = new Array();
-	if (this.direction == directions.left) {
-		this.startX = Math.floor(Math.random() * (width / this.num));
-		for (i = 0; i < this.num; i++) {
-			this.xCoords[i] = this.startX + i * (width / this.num + this.width);
-		}
-	} else {
-		this.startX = Math.floor(Math.random() * (width / this.num));
-		for (i = 0; i < this.num; i++) {
-			this.xCoords[i] = this.startX + i * (width / this.num + this.width);
-		}
-	}
-}
+function objectArray(sX, sY, w, h, y, n, s, d) {this.spriteX = sX;this.spriteY = sY;this.width = w;this.height = h;this.y = y;
+this.num = n;this.speed = s;this.direction = d;this.xCoords = new Array();
+if (this.direction == directions.left) {this.startX = Math.floor(Math.random() * (width / this.num));
+for (i = 0; i < this.num; i++) {this.xCoords[i] = this.startX + i * (width / this.num + this.width);}
+} else {this.startX = Math.floor(Math.random() * (width / this.num));for (i = 0; i < this.num; i++) {
+this.xCoords[i] = this.startX + i * (width / this.num + this.width);}}}
 var vehicleLibrary = {
 	pink: new objectArray(10, 268, 28, 20, 455, 4, 2, directions.left),
 	white: new objectArray(46, 264, 28, 24, 420, 3, 1, directions.right),
