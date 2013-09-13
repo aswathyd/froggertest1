@@ -4,13 +4,9 @@ if (this.direction == directions.left) {this.startX = Math.floor(Math.random() *
 for (i = 0; i < this.num; i++) {this.xCoords[i] = this.startX + i * (width / this.num + this.width);}
 } else {this.startX = Math.floor(Math.random() * (width / this.num));for (i = 0; i < this.num; i++) {
 this.xCoords[i] = this.startX + i * (width / this.num + this.width);}}}
-var vehicleLibrary = {
-	pink: new objectArray(10, 268, 28, 20, 455, 4, 2, directions.left),
-	white: new objectArray(46, 264, 28, 24, 420, 3, 1, directions.right),
-	yellow: new objectArray(81, 265, 24, 26, 385, 4, 1, directions.left),
-	tank: new objectArray(12, 302, 24, 21, 350, 5, 2, directions.right),
-	truck: new objectArray(104, 302, 46, 18, 315, 3, 2, directions.left)
-}
+var vehicleLibrary = {pink: new objectArray(10, 268, 28, 20, 455, 4, 2, directions.left),white: new objectArray(46, 264, 28, 24, 420, 3, 1, directions.right),
+yellow: new objectArray(81, 265, 24, 26, 385, 4, 1, directions.left),tank: new objectArray(12, 302, 24, 21, 350, 5, 2, directions.right),
+truck: new objectArray(104, 302, 46, 18, 315, 3, 2, directions.left)}
 var logLibrary = {
 	shortRight: new objectArray(10, 230, 85, 21, 110, 3, 3, directions.right),
 	shortLeft: new objectArray(10, 230, 85, 21, 215, 3, 3, directions.left),
