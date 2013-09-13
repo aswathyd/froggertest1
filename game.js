@@ -55,24 +55,11 @@ function eventListener() {
 $(document).keydown(function(event) {
 var arrow = {left: 37,up: 38,right: 39,down: 40}
 if (deathPause == 0) {if (event.which == arrow.left || event.keyCode == arrow.left) {frogger = new frog(directions.left, frogger.x, frogger.y);movePause = 2;
-			} else if (event.which == arrow.up || event.keyCode == arrow.up) {
-				frogger = new frog(directions.up, frogger.x, frogger.y);
-				movePause = 2;
-				isUpArrow = true;
-			} else if (event.which == arrow.right || event.keyCode == arrow.right) {
-				frogger = new frog(directions.right, frogger.x, frogger.y);
-				movePause = 2;
-			} else if ((event.which == arrow.down || event.keyCode == arrow.down) && frogger.y < 485) {
-				frogger = new frog(directions.down, frogger.x, frogger.y);
-				movePause = 2;
-			} else {
-				return;
-			}
-		} else {
-			return;
-		}
-		event.preventDefault();
-	});
+} else if (event.which == arrow.up || event.keyCode == arrow.up) {frogger = new frog(directions.up, frogger.x, frogger.y);movePause = 2;isUpArrow = true;
+} else if (event.which == arrow.right || event.keyCode == arrow.right) {frogger = new frog(directions.right, frogger.x, frogger.y);movePause = 2;
+} else if ((event.which == arrow.down || event.keyCode == arrow.down) && frogger.y < 485) {frogger = new frog(directions.down, frogger.x, frogger.y);movePause = 2;
+} else {return;}
+} else {return;}event.preventDefault();});
 	$("#clickSubmit").click(function() {
 		if (clickOn) {
 			submitScore();
