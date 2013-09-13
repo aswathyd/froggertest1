@@ -32,11 +32,7 @@ xSpan = (frogger.x >= objectArray[i].xCoords[j] && frogger.x <= objectArray[i].x
 if (xSpan && ySpan) {if (isMoving) {moveFrogWith(objectArray[i]);}return true;}}}return false;}
 function moveFrogWith(object) {if (object.direction == directions.left) {frogger.x -= object.speed;
 } else {frogger.x += object.speed;}}
-
-// Checks whether the frog is in an unoccupied inlet (and not on the green land!)
-function isHome() {
-	return isCollisionWith(inlets, false) && !isCollisionWith(frogsHome, false) && !isCollisionWith(badlands, false);
-}
+function isHome() {return isCollisionWith(inlets, false) && !isCollisionWith(frogsHome, false) && !isCollisionWith(badlands, false);}
 
 // Checks whether the frog is now dead
 // Won't run if isHome() is true and so doesn't need to check if the frog is in an inlet
