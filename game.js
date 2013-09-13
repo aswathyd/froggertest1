@@ -39,34 +39,20 @@ fly[0].intervalsActive--;
 drawFly();}
 } else {initFly();}}
 function isCollisionWith(objectArray, isMoving) {
-	var xSpan, ySpan;
-	for (i = 0; i < objectArray.length; i++) {
-		ySpan = (frogger.y >= objectArray[i].y && frogger.y <= objectArray[i].y + objectArray[i].height) || (frogger.y + frogger.height >= objectArray[i].y && frogger.y <= objectArray[i].y + objectArray[i].height);
-		for (j = 0; j < objectArray[i].num; j++) {
-			xSpan = (frogger.x >= objectArray[i].xCoords[j] && frogger.x <= objectArray[i].xCoords[j] + objectArray[i].width) || (objectArray[i].xCoords[j] >= frogger.x && objectArray[i].xCoords[j] <= frogger.x + frogger.width);
-			if (xSpan && ySpan) {
-				if (isMoving) {
-					moveFrogWith(objectArray[i]);
-				}
-				return true;
-			}
-		}
-	}
-	return false;
-}
+var xSpan, ySpan;
+or (i = 0; i < objectArray.length; i++) {
+ySpan = (frogger.y >= objectArray[i].y && frogger.y <= objectArray[i].y + objectArray[i].height) || (frogger.y + frogger.height >= objectArray[i].y && frogger.y <= objectArray[i].y + objectArray[i].height);
+for (j = 0; j < objectArray[i].num; j++) {
+xSpan = (frogger.x >= objectArray[i].xCoords[j] && frogger.x <= objectArray[i].xCoords[j] + objectArray[i].width) || (objectArray[i].xCoords[j] >= frogger.x && objectArray[i].xCoords[j] <= frogger.x + frogger.width);
+if (xSpan && ySpan) {
+if (isMoving) {
+moveFrogWith(objectArray[i]);
+}return true;}}}return false;}
 function moveFrogWith(object) {
-	if (object.direction == directions.left) {
-		frogger.x -= object.speed;
-	} else {
-		frogger.x += object.speed;
-	}
-}
-function isHome() {
-	return isCollisionWith(inlets, false) && !isCollisionWith(frogsHome, false) && !isCollisionWith(badlands, false);
-}
-function isCollisionDeath() {
-	return isCollisionWith(vehicles, false) || (frogger.y < 262 && (!isCollisionWith(logs, true) || (frogger.x <= 0 || frogger.x + frogger.width >= 399) || isCollisionWith(badlands, false)));
-}
+if (object.direction == directions.left) {
+frogger.x -= object.speed;} else {frogger.x += object.speed;}}
+function isHome() {return isCollisionWith(inlets, false) && !isCollisionWith(frogsHome, false) && !isCollisionWith(badlands, false);}
+function isCollisionDeath() {return isCollisionWith(vehicles, false) || (frogger.y < 262 && (!isCollisionWith(logs, true) || (frogger.x <= 0 || frogger.x + frogger.width >= 399) || isCollisionWith(badlands, false)));}
 function updateCollisionDeath() {
 	deadFrog = {
 		x: frogger.x,
