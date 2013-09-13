@@ -24,25 +24,12 @@ function updateFly() {if (fly[0].isActive) {
 if (fly[0].intervalsActive == 0) {fly[0].isActive = false;
 } else {fly[0].intervalsActive--;drawFly();}
 } else {initFly();}}
-
-// Determines whether there is a collision between the frog and any objects in the argument array
-// Moves the frog with the object it's touching if isMoving is true (e.g., for logs)
-function isCollisionWith(objectArray, isMoving) {
-	var xSpan, ySpan;
-	for (i = 0; i < objectArray.length; i++) {
-		ySpan = (frogger.y >= objectArray[i].y && frogger.y <= objectArray[i].y + objectArray[i].height) || (frogger.y + frogger.height >= objectArray[i].y && frogger.y <= objectArray[i].y + objectArray[i].height);
-		for (j = 0; j < objectArray[i].num; j++) {
-			xSpan = (frogger.x >= objectArray[i].xCoords[j] && frogger.x <= objectArray[i].xCoords[j] + objectArray[i].width) || (objectArray[i].xCoords[j] >= frogger.x && objectArray[i].xCoords[j] <= frogger.x + frogger.width);
-			if (xSpan && ySpan) {
-				if (isMoving) {
-					moveFrogWith(objectArray[i]);
-				}
-				return true;
-			}
-		}
-	}
-	return false;
-}
+function isCollisionWith(objectArray, isMoving) {var xSpan, ySpan;
+for (i = 0; i < objectArray.length; i++) {
+ySpan = (frogger.y >= objectArray[i].y && frogger.y <= objectArray[i].y + objectArray[i].height) || (frogger.y + frogger.height >= objectArray[i].y && frogger.y <= objectArray[i].y + objectArray[i].height);
+for (j = 0; j < objectArray[i].num; j++) {
+xSpan = (frogger.x >= objectArray[i].xCoords[j] && frogger.x <= objectArray[i].xCoords[j] + objectArray[i].width) || (objectArray[i].xCoords[j] >= frogger.x && objectArray[i].xCoords[j] <= frogger.x + frogger.width);
+if (xSpan && ySpan) {if (isMoving) {moveFrogWith(objectArray[i]);}return true;}}}return false;}
 
 // Moves the frog with the object it's on (e.g., a log)
 function moveFrogWith(object) {
