@@ -43,28 +43,10 @@ function initHighScoresHeader(div) {var header = document.createElement("div");h
 rank.innerHTML = "<h3>Rank</h3>";var username = document.createElement("div");username.innerHTML = "<h3>Username</h3>";
 var scoreDiv = document.createElement("div");scoreDiv.innerHTML = "<h3>Score</h3>";var dateDiv = document.createElement("div");dateDiv.innerHTML = "<h3>Date</h3>";
 $(div).append(header);$(header).append(rank);$(header).append(username);$(header).append(scoreDiv);$(header).append(dateDiv);}
-
-function addHighScore(data, rank) {
-	var row = document.createElement("div");
-	row.classList.add("highScore");
-	var rankDiv = document.createElement("div");
-	rankDiv.innerHTML = "<p>" + rank + ".</p>";
-	rankDiv.classList.add("rank");
-	var username = document.createElement("div");
-	username.innerHTML = "<p>" + data.username + "</p>";
-	username.classList.add("username");
-	var scoreDiv = document.createElement("div");
-	scoreDiv.innerHTML = "<p>" + data.score + "</p>";
-	scoreDiv.classList.add("score");
-	var date = new Date(data.created_at);
-	var dateDiv = document.createElement("div");
-	dateDiv.innerHTML = "<p>" + (date.getMonth() + 1) +
-				"/" + date.getDate() + "/"
-				+ date.getFullYear() + "</p>";
-	dateDiv.classList.add("date");
-	$("#scoresData").append(row);
-	$(row).append(rankDiv);
-	$(row).append(username);
-	$(row).append(scoreDiv);
-	$(row).append(dateDiv);
-}
+function addHighScore(data, rank) {var row = document.createElement("div");row.classList.add("highScore");var rankDiv = document.createElement("div");
+rankDiv.innerHTML = "<p>" + rank + ".</p>";rankDiv.classList.add("rank");var username = document.createElement("div");username.innerHTML = "<p>" + data.username + "</p>";
+username.classList.add("username");var scoreDiv = document.createElement("div");scoreDiv.innerHTML = "<p>" + data.score + "</p>";scoreDiv.classList.add("score");
+var date = new Date(data.created_at);var dateDiv = document.createElement("div");
+dateDiv.innerHTML = "<p>" + (date.getMonth() + 1) +"/" + date.getDate() + "/"+ date.getFullYear() + "</p>";
+dateDiv.classList.add("date");
+$("#scoresData").append(row);$(row).append(rankDiv);$(row).append(username);$(row).append(scoreDiv);$(row).append(dateDiv);}
