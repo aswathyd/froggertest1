@@ -13,23 +13,9 @@ function runGame() {
 		}
 	}, timeInterval);
 }
-function runDeath() {
-	drawGame();
-	drawDeadFrog();
-	drawDeadFrogMsg();
-	deathPause--;
-}
-function runMove() {
-	update();
-	drawGame();
-	drawMovingFrog();
-	movePause--;
-}
-function runRegular() {
-	update();
-	drawGame();
-	drawFrog(frogger);
-}
+function runDeath() {drawGame();drawDeadFrog();drawDeadFrogMsg();deathPause--;}
+function runMove() {update();drawGame();drawMovingFrog();movePause--;}
+function runRegular() {update();drawGame();drawFrog(frogger);}
 function runEndGame() {
 	drawGame();
 	deadFrog = {
