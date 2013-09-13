@@ -1,29 +1,9 @@
 function runGame() {
 setInterval(function() {if (time > 0) {if (deathPause > 0) {runDeath();} else if (movePause > 0) {
 runMove();} else {runRegular();}} else {runEndGame();}}, timeInterval);}
-
-// Runs while the frog is dead
-function runDeath() {
-	drawGame();
-	drawDeadFrog();
-	drawDeadFrogMsg();
-	deathPause--;
-}
-
-// Runs when the frog moves
-function runMove() {
-	update();
-	drawGame();
-	drawMovingFrog();
-	movePause--;
-}
-
-// Runs when nothing in the game has changed (i.e., the frog is alive and hasn't moved)
-function runRegular() {
-	update();
-	drawGame();
-	drawFrog(frogger);
-}
+function runDeath() {drawGame();drawDeadFrog();drawDeadFrogMsg();deathPause--;}
+function runMove() {update();drawGame();drawMovingFrog();movePause--;}
+function runRegular() {update();drawGame();drawFrog(frogger);}
 
 // Runs when the game is over
 function runEndGame() {
