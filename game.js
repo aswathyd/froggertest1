@@ -20,20 +20,10 @@ if (objectArray[i].xCoords[j] <= 0 - objectArray[i].width) {objectArray[i].xCoor
 } else {objectArray[i].xCoords[j] -= objectArray[i].speed;}
 } else {if (objectArray[i].xCoords[j] >= 399 + objectArray[i].width) {objectArray[i].xCoords[j] = 0 - objectArray[i].width;
 } else {objectArray[i].xCoords[j] += objectArray[i].speed;}}}}}
-
-// Adjusts the fly so that it is only present sometimes and moves randomly
-function updateFly() {
-	if (fly[0].isActive) {
-		if (fly[0].intervalsActive == 0) {
-			fly[0].isActive = false;
-		} else {
-			fly[0].intervalsActive--;
-			drawFly();
-		}
-	} else {
-		initFly();
-	}
-}
+function updateFly() {if (fly[0].isActive) {
+if (fly[0].intervalsActive == 0) {fly[0].isActive = false;
+} else {fly[0].intervalsActive--;drawFly();}
+} else {initFly();}}
 
 // Determines whether there is a collision between the frog and any objects in the argument array
 // Moves the frog with the object it's touching if isMoving is true (e.g., for logs)
